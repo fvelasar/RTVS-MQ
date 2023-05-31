@@ -31,7 +31,7 @@ COPY IBMWebSphereMQdist/bin/intercept_linux_x86_64 /var/mqm/exits64/RTVS/
 COPY IBMWebSphereMQdist/bin/intercept_linux_x86_64_r /var/mqm/exits64/RTVS/
 
 # Enlaces Simblicos
-USER root
+USER 0
 
 RUN mv /var/mqm/exits/RTVS/intercept_linux_x86 /var/mqm/exits/RTVS/intercept
 RUN mv /var/mqm/exits/RTVS/intercept_linux_x86_r /var/mqm/exits/RTVS/intercept_r
@@ -55,7 +55,7 @@ RUN groupadd mqadmgr -g 1002  && \
     echo mqadm:default | chpasswd 
 
 
-USER root
+USER 0
 COPY config.mqsc /etc/mqm/
 COPY /qm.ini /etc/mqm/
 
